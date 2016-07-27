@@ -10,3 +10,8 @@
 * `php artisan migrate --seed` para criar e popular as tabelas
 * `php artisan vendor:publish` para publicar
 * `php artisan serve` para iniciar o app em http://localhost/
+
+### Dados de login ###
+
+Usuário `teste`
+Senha `123456`
