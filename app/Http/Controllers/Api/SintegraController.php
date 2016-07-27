@@ -31,13 +31,16 @@ class SintegraController extends Controller
      */
     public function store(Request $request)
     {
-        $json = $this->callSintegra($request->input('cnpj'));
+        $cnpj = preg_replace('/\D/', '', $request->input('cnpj'));
+        $json = $this->callSintegra($cnpj);
 
-        $sintegra = new Sintegra;
-        $sintegra->idusuario = Auth::user()->id;
-        $sintegra->cnpj = $request->input('cnpj');
-        $sintegra->resultado_json = $json;
-        $sintegra->save();
+        if (strlen($cnpj) === 14 && $json !== '[]') {
+            $sintegra = new Sintegra;
+            $sintegra->idusuario = Auth::user()->id;
+            $sintegra->cnpj = $cnpj;
+            $sintegra->resultado_json = $json;
+            $sintegra->save();
+        }
 
         echo $json;
     }
