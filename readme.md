@@ -15,3 +15,7 @@
 
 Usuário `teste`
 Senha `123456`
+
+### CNPJ de teste ###
+
+`31.804.115/0002-43`
